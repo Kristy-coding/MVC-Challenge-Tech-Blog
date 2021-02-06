@@ -44,4 +44,4 @@ Post.hasMany(Comment, {
 
 
 // now we exports these objects that know have new properties attached to them (aka the relationship and association we made)
-module.exports = { User, Post, Vote, Comment };
+module.exports = { User, Post, Comment };

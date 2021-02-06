@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 // connecting to sql database via the config folder ..................................................
 const sequelize = require('./config/connection');
 
-// setting up everthing we need to use express session and sequelize store.............................
+//setting up everthing we need to use express session and sequelize store.............................
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
@@ -29,7 +29,7 @@ app.use(session(sess));
 
 // handle bars and helpers ..............................................................................
 //const helpers = require('./utils/helpers');
-const hbs = exphbs.create({ });
+const hbs = exphbs.create({});
 // if we instroduce a helpers file for authentication the the above const will look as follows
 //const hbs = exphbs.create({ helpers });
 
