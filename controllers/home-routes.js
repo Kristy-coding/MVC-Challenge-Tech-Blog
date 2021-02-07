@@ -53,7 +53,7 @@ router.get('/', (req, res) => {
         // esentially we passing in post:post and using object detructuring to pass post
         // so the key is posts and the value is the serialized posts array 
         // now we need to set up the handlebars homepage template to loop through the arrray because right now it is only set up to render one single post (one title, one username, one data etc.) 
-        res.render('homepage', { posts });
+        res.render('homepage', { posts, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
           console.log(err);

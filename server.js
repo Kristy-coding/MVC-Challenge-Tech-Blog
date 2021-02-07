@@ -1,5 +1,7 @@
 // Dependencies....................................
 // we will need path for serving up static files...
+// require the dotenv package with the configuration method so that we can save MySQL password and username in a .env file that will not be pushed to github 
+require ('dotenv').config();
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -16,7 +18,7 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.SESSION_SECRET,
   cookie: {},
   resave: false,
   saveUninitialized: true,

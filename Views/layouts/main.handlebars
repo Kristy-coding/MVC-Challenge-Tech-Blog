@@ -20,15 +20,19 @@
                         <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Homepage</a>
                         </li>
+                        {{!-- loggedIn is a property we made with session, make sure you pass in this property as an object to handlesbars when you render the main templates in homeroutes.... the same place you passed in {post, loggedIn: req.session.loggedIn}--}}
+                        {{#if loggedIn}}
                         <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                        </li>
-                        <li class="nav-item">
                         <a class="nav-link" id = "logout" href="/">Logout</a>
                         </li>
+                        {{else}}
+                        <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>
@@ -42,6 +46,8 @@
         </main>
     </div>
 </div>
+{{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
+{{/if}}
 </body>
 </html>
