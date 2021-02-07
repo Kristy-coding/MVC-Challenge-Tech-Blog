@@ -1,0 +1,51 @@
+
+
+.card {
+    max-width: 80%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background-color: black;
+    margin-bottom: 20px;
+
+}
+
+.navbar {
+    background-color: black;
+}
+
+.main-title {
+    margin-left: 50px;
+    background-color: rgb(57, 57, 247);
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+h1 {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 30px;
+}
+
+.card-header {
+    background-color: rgba(170, 164, 164, 0.377);
+}
+
+.posted-by {
+    font-size: small;
+}
+
+.card-title {
+    font-size: larger;
+    font-weight:500
+}

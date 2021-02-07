@@ -28,8 +28,8 @@ app.use(session(sess));
 //.......................................................................................................
 
 // handle bars and helpers ..............................................................................
-//const helpers = require('./utils/helpers');
-const hbs = exphbs.create({});
+const helpers = require('./utils/helpers');
+const hbs = exphbs.create({ helpers });
 // if we instroduce a helpers file for authentication the the above const will look as follows
 //const hbs = exphbs.create({ helpers });
 

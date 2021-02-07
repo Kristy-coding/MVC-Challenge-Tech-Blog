@@ -1,1 +1,15 @@
-<div>You are on the homepage</div>
+{{!--Note the use of {{#each}} to begin the loop and {{/each}} to define where it ends. Any HTML code in between (e.g., the <li> element) will be repeated for every item in posts--}}
+{{!--Within the {{#each}} block, Handlebars.js is smart enough to know that it's working with an object on each iteration, so it looks for the necessary properties--}}
+<div class="post-list">
+{{#each posts}}
+  <div class="card">
+  <div class="card-header">
+      <span class="card-title">{{title}} </span><span class="posted-by"> (Posted by {{user.username}} on {{format_date created_at}})</span>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{blog_text}}</p>
+  </div>
+</div>
+{{/each}}
+</div>
+
