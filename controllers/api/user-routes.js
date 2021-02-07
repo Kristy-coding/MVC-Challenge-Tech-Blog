@@ -72,6 +72,9 @@ router.post('/', (req, res) => {
         password: req.body.password
     })
     // using express session package we set up on the server page we can track/save the session by setting the status to logginIn= true and setting the session id and username equal to the user.id and user.username ... is logginIn is set to false we are no longer saving session?
+    // once we have the user data we create a session 
+    //This gives our server easy access to the user's user_id, username, and a Boolean describing whether or not the user is logged in.
+    //We want to make sure the session is created before we send the response back, so we're wrapping the variables in a callback. The req.session.save() method will initiate the creation of the session and then run the callback function once complete
     .then(dbUserData => {
         req.session.save(() => {
           req.session.user_id = dbUserData.id;

@@ -1,4 +1,4 @@
-//This file will contain all of the user-facing routes, such as the homepage and login page.
+//This file will contain all of the user-facing routes that render templates and display data (such as the homepage and login page/ sign up page)
 
 // have to connect to the database anytime we are making queries 
 const sequelize = require('../config/connection');
@@ -12,6 +12,7 @@ const router = require('express').Router();
 // so if you navigate to http://localhost:3001 the homepage should be rendered 
 //GET /
 router.get('/', (req, res) => {
+    console.log(req.session)
     
     Post.findAll({
         attributes: [
@@ -58,6 +59,23 @@ router.get('/', (req, res) => {
           console.log(err);
           res.status(500).json(err);
     });
+});
+
+router.get('/login', (req, res) => {
+    // when the user navigates to the homepage by clicking the nav link... we will check to see if they are already logginIn. If they are we will redirect them to the homepage instead of taking them to the login page
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    //Our login page doesn't need any variables, so we don't need to pass a second argument to the render() method.
+    //What's different about this render() from last time? Our login page doesn't need any variables, so we don't need to pass a second argument to the render() method
+    res.render('login')
+});
+
+router.get('/signup', (req, res) => {
+    
+    //What's different about this render() from last time? Our login page doesn't need any variables, so we don't need to pass a second argument to the render() method
+    res.render('signup')
 });
 
 module.exports = router;

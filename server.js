@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3001;
 const sequelize = require('./config/connection');
 
 //setting up everthing we need to use express session and sequelize store.............................
+//This code sets up an Express.js session and connects the session to our Sequelize database (including above dependencies)
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
