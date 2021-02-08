@@ -26,7 +26,8 @@ router.post('/', withAuth, (req, res) => {
     Comment.create({
       comment_text: req.body.comment_text,
       post_id: req.body.post_id,
-      // use the id from the session.. we are telling the server to grab the id that is saved in the session when the user logs in or signs up 
+      // use the id from the session.. we are telling the server to grab the id that is saved in the session when the user logs in or signs up
+      // there for when we make a comment post request from the front end we only need to send comment_text and post_id information from the user
       user_id: req.session.user_id
     })
       .then(dbCommentData => res.json(dbCommentData))

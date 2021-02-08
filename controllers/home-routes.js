@@ -61,6 +61,54 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/posts/:id', (req, res) => {
+
+
+  Post.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'blog_text',
+      'title',
+      'created_at'
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbPostData => {
+      console.log(dbPostData)
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+
+      // serialize the data
+      const post = dbPostData.get({ plain: true });
+
+      // pass data to template
+      // here we are rendering the single-post handlebar template and passing the post object and logginIn  data as an object with the key loggedIn: and the value of req.seesion.logginIn (this value is eather going to be true or false)
+      res.render('single-blog', { post, loggedIn: req.session.loggedIn });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.get('/login', (req, res) => {
     // when the user navigates to the homepage by clicking the nav link... we will check to see if they are already logginIn. If they are we will redirect them to the homepage instead of taking them to the login page
     if (req.session.loggedIn) {

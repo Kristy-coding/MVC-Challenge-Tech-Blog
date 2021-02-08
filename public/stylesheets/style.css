@@ -49,3 +49,22 @@ h1 {
     font-size: larger;
     font-weight:500
 }
+
+.comment-card {
+    max-width: 50%;
+    margin-left: 10%;
+}
+.comment-box {
+    max-width: 50%;
+    margin-left: 10%;
+    margin-bottom: 20px;
+}
+
+.comment-user-date {
+    font-size: small;
+    color: grey;
+}
+
+.comment-card {
+    background-color: rgba(146, 177, 202, 0.404);
+}
