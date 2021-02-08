@@ -68,3 +68,25 @@ h1 {
 .comment-card {
     background-color: rgba(146, 177, 202, 0.404);
 }
+
+.edit-link {
+
+    margin-left: 11%; 
+    margin-right: 20px;   
+}
+
+
+
+
+.dashboard-card{
+    margin-bottom: 0;
+}
+.edit-delete-div{
+    margin-bottom: 20px;
+}
+
+.add-post-btn-div {
+    margin-left: 70rem;
+    margin-bottom: 30px;
+    
+}

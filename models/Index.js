@@ -39,7 +39,9 @@ User.hasMany(Comment, {
   
 Post.hasMany(Comment, {
     // here we are saying that the comments should also have a foreign key 'post_id' that references the post 'id' so we know which post the comment is attached to
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    // trying to set it up so that when partent is deleted comments are deleted but not working?
+    onDelete: 'CASCADE'
 });
 
 
