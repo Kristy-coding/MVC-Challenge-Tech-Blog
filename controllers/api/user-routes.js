@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 // requiring ../../models will actually connect to index.js be default, it will always look an index file if a more specific path isn't defined ../../models/index.js
 // when we require from index we are getting the models we defined and also the properties and methods we creating to define the relationships between the models 
-const {User, Post, Comment} = require('../../models');
+const {User, Post, Comment} = require('../../models/Index.js');
 
 // GET/api/users
 router.get('/', (req, res)=> {

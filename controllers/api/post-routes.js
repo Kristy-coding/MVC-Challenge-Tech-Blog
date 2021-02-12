@@ -11,7 +11,7 @@ const withAuth = require('../../utils/auth');
 // this will grab the /models.index.js by default 
 // we need to require Post and User models 
 //In a query to the post table, we would like to retrieve not only information about each post, but also the user that posted it. With the foreign key, user_id, we can form a JOIN, an essential characteristic of the relational data model
-const {Post, User, Comment} = require('../../models');
+const {Post, User, Comment} = require('../../models/Index.js');
 
 // get all posts
 // GET /api/posts
