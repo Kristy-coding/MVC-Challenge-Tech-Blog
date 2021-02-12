@@ -83,7 +83,10 @@ router.post('/', (req, res) => {
       
           res.json(dbUserData);
         });
-      })  
+      }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    }); 
 });
 
 //In this case, a login route could've used the GET method since it doesn't actually create or insert anything into the database. But there is a reason why a POST is the standard for the login that's in process.
@@ -117,6 +120,9 @@ router.post('/login', (req, res) => {
   
         res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
   });
 
