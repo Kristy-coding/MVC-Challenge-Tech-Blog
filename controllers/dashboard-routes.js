@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
+
 const withAuth = require('../utils/auth')
 // making routes that render dashboard content
 // homeroutes were to render homepage content 
@@ -93,17 +94,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
         res.status(500).json(err);
       });
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
