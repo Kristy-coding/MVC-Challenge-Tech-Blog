@@ -2,7 +2,7 @@
 
 // have to connect to the database anytime we are making queries 
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment } = require('../models/Index.js');
 
 
 const router = require('express').Router();
