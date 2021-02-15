@@ -31,7 +31,7 @@
   This application is covered under the [MIT license](https://choosealicense.com/licenses/mit/)
   
     
-  ### Contributing
+  ### Screen Shot
   
   
    
