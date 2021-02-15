@@ -1,0 +1,34 @@
+{{!--Note the use of {{#each}} to begin the loop and {{/each}} to define where it ends. Any HTML code in between (e.g., the <li> element) will be repeated for every item in posts--}}
+{{!--Within the {{#each}} block, Handlebars.js is smart enough to know that it's working with an object on each iteration, so it looks for the necessary properties--}}
+
+
+<div class="post-list">
+{{#if loggedIn}}
+{{#each posts}}
+<div class="card">
+    <div class="card-header">
+        {{!-- setting up post.id route will take us through the homeroute that we set up to render a single blog post on the single blog post page--}}
+        <a href="/posts/{{id}}"class="card-title">{{title}} </a>
+        <span>({{format_date created_at}})</span>
+       {{!-- <span class="posted-by"> (Posted by {{user.username}})</span>--}}
+    </div>
+    {{!--
+    <div class="card-body">
+      <p class="card-text">{{blog_text}}</p>
+    </div>--}}
+  </div>
+  {{/each}}
+  {{else}}
+  {{#each posts}}
+  <div class="card-header m-3">
+        <span class="card-title">{{title}} </span>
+        <span>{{format_date created_at}}</span>
+  </div>
+</div>
+{{/each}}
+{{/if}}
+</div>
+
+{{!--<script src="/javascript/comments.js"></script>--}}
+
+

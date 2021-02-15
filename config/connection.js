@@ -8,7 +8,7 @@ let sequelize
 
 if(process.env.JAWSDB_URL){
 
-    sequelize = new Sequelize (process.env.JAWSDB_URL, {dialect:'mysql'})
+    sequelize = new Sequelize (process.env.JAWSDB_URL, {dialect:'mysql', logging: true, host: process.env.DB_HOST})
     
 }else{
 
@@ -21,3 +21,4 @@ if(process.env.JAWSDB_URL){
 }
 
 module.exports = sequelize;
+

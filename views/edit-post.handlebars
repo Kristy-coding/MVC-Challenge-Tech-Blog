@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">Create New Post</div>
+  <div class="card-body">
+    <form class="edit-post-form">
+        <div class="mb-3">
+            <label for="Title" class="form-label">Title</label>
+            {{!-- this will set the input box to have the current title in it--}}
+            <input type="text" class="form-control" value ="{{post.title}}" >
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            {{!-- this will set the text box to have the current content in it--}}
+            <textarea class="form-control" aria-label="With textarea">{{post.blog_text}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary ps-3 pe-3 me-2 update-btn">update</button>
+        <button type="submit" class="btn btn-primary ps-3 pe-3 me-2 delete-post-btn">delete</button>
+    </form>
+  </div>
+</div>
+
+{{!--these files have our font end logic for updating and deleting posts, we have to make requests to the databse when we click update or delete--}}
+{{!--When the button is clicked, you'll need to capture the id of the post from the url and use fetch() to make a DELETE request to /api/posts/:id. If the request is successful, redirect the user using document.location.replace('/dashboard/')--}}
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
